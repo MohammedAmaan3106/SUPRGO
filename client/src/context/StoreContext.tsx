@@ -216,7 +216,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch('/api/products');
+        const API_BASE = 'https://suprgo-api.onrender.com';
+        const res = await fetch(`${API_BASE}/api/products`);
         if (res.ok) {
           const data = await res.json();
           setProducts(data.products || []);
